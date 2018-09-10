@@ -40,7 +40,7 @@ node -v
 > Erwartet: v8.9.x oder höher
 
 ng version
-> Erwartet: 6.1.4 oder höher
+> Erwartet: 7.0.0-beta.2
 ```
 
 
