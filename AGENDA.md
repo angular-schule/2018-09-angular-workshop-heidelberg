@@ -74,3 +74,8 @@ Die Verpflegung ist für alle Teilnehmer unserer Schulung kostenlos.
 * Nachmittagpause mit frisch gebrühtem Kaffee, Teeauswahl, Obstkorb mit Früchten der Saison, Kuchen & Gebäckauswahl
 
 
+<hr>
+
+<img src="http://assets.angular.schule/logo-angular-schule.png" height="60">
+
+### &copy; 2018 https://angular.schule, Stand: 10.09.2018
