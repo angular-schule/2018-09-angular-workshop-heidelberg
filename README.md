@@ -2,6 +2,8 @@
 
 #### **mit Johannes Hoppe**
 
+[![Join the chat at https://gitter.im/2018-09-angular-workshop-heidelberg/Lobby](https://badges.gitter.im/2018-09-angular-workshop-heidelberg/Lobby.svg)](https://gitter.im/2018-09-angular-workshop-heidelberg/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 <hr>
 
 **Schön, dass Du dabei bist!**  
