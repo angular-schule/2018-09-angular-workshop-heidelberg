@@ -1,4 +1,4 @@
-var blubb = "2"
+var blubb = "2s"
 
 export class Book {
 

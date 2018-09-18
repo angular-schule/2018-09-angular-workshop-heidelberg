@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc",
+    "start": "webpack",
     "version": "tsc --version"
   },
   "author": "",
   "license": "ISC",
   "private": true,
   "devDependencies": {
-    "typescript": "^3.0.3"
+    "ts-loader": "^5.1.1",
+    "typescript": "^3.0.3",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0"
   }
 }
