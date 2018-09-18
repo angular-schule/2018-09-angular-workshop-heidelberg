@@ -1,3 +1,4 @@
 /typescript-playground/node_modules/
 /typescript-playground/*.js
 /typescript-playground/*.js.map
+/typescript-playground/dist/**
