@@ -1,3 +1,7 @@
-<p>
-  {{ books }}
-</p>
+
+<ng-container *ngIf="books.length > 0">
+
+  <br-book *ngFor="let b of books"
+          [book]="b"></br-book>
+
+</ng-container>
