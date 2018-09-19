@@ -12,7 +12,15 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
+  updateAndSortBooks(book: Book) {
+    this.books = this.books
+      .map(b => b.isbn === book.isbn ? book : b)
+      .sort((a, b) => b.rating - a.rating);
+  }
+
   ngOnInit() {
+
+    // sort me!
     this.books = [{
       isbn: '000',
       title: 'Angular',

@@ -23,4 +23,6 @@ export class BookRatingService {
       rating: book.rating > this.minRating ? book.rating - 1 : this.minRating
     };
   }
+
+  // TODO: rateUpAllowed / rateDownAllowed
 }
