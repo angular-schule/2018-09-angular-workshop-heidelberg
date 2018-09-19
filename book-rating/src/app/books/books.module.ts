@@ -17,6 +17,10 @@ import { BookComponent } from './book/book.component';
   ],
   exports: [
     DashboardComponent
+  ],
+  // services providen (angular 5 way)
+  providers: [
+    // BookRatingService
   ]
 })
 export class BooksModule { }
