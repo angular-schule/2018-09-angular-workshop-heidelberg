@@ -7,11 +7,15 @@ describe('BookComponent', () => {
   let component: BookComponent;
   let fixture: ComponentFixture<BookComponent>;
 
+  let rateUpHasBeenCalled;
   const ratingMock = {
-
+    rateUp: () => {
+      rateUpHasBeenCalled = true;
+    }
   };
 
   beforeEach(async(() => {
+    rateUpHasBeenCalled = false;
     TestBed.configureTestingModule({
       declarations: [ BookComponent ],
       providers: [
@@ -40,5 +44,10 @@ describe('BookComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should forward the rateUp call to the book rating service', () => {
+    component.rateUp();
+    expect(rateUpHasBeenCalled).toBe(true);
   });
 });
