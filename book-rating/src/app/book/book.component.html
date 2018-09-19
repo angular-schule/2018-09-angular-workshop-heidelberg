@@ -1,8 +1,27 @@
-<h2>{{ book.title }} - {{ book.rating }}</h2>
+<div class="card mt-4">
+  <div class="card-body bg-light">
 
-<p>{{ book.description }}</p>
+    <img class="img-thumbnail float-right"
+         src="//api.angular.schule/avatar/{{ book.rating }}">
 
-<button class="btn btn-primary">
+    <div class="card-title">
+      <h2>{{ book.title }}
+        <span class="badge badge-secondary">
+          {{ book.rating }}
+        </span></h2>
+    </div>
 
-  Klick mich!
-</button>
+    <p>{{ book.description }}</p>
+
+    <!-- pfui +1 -->
+
+    <button
+      class="btn btn-secondary mr-2"
+      (click)="book.rating = book.rating - 1">-1</button>
+
+    <button
+      class="btn btn-primary"
+      (click)="book.rating = book.rating + 1">+1</button>
+
+  </div>
+</div>
