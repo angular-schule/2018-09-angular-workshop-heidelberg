@@ -5,10 +5,8 @@
          src="//api.angular.schule/avatar/{{ book.rating }}">
 
     <div class="card-title">
-      <h2>{{ book.title }}
-        <span class="badge badge-secondary">
-          {{ book.rating }}
-        </span></h2>
+      <h2>{{ book.title }}</h2>
+      <span *ngFor="let star of '⭐'.repeat(book.rating).split('')">{{ star }}</span>
     </div>
 
     <p>{{ book.description }}</p>
