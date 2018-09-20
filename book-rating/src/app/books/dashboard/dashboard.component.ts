@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Book } from '../shared/book';
+import { BookStoreService } from '../shared/book-store.service';
 
 @Component({
   selector: 'br-dashboard',
@@ -11,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   books: Book[];
 
-  constructor() { }
+  constructor(private bookStoreService: BookStoreService) { }
 
   updateAndSortBooks(book: Book) {
     this.books = this.books
@@ -20,21 +21,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    //#region
-    this.books = [{
-      isbn: '000',
-      title: 'Angular',
-      description: 'Tolles Buch',
-      rating: 5
-    },
-    {
-      isbn: '111',
-      title: 'AngularJS',
-      description: 'Altes Buch',
-      rating: 3
-    }
-    //#endregion
-  ];
+    this.books = this.bookStoreService.getAllHardcoded();
   }
 
   addBook(book: Book) {
