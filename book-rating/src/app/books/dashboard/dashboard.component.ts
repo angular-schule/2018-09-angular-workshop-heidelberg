@@ -20,8 +20,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    // sort me!
+    //#region
     this.books = [{
       isbn: '000',
       title: 'Angular',
@@ -34,6 +33,11 @@ export class DashboardComponent implements OnInit {
       description: 'Altes Buch',
       rating: 3
     }
+    //#endregion
   ];
+  }
+
+  addBook(book: Book) {
+    this.books = [...this.books, book];
   }
 }
