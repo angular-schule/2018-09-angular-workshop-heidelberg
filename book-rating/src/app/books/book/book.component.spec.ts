@@ -2,20 +2,20 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookComponent } from './book.component';
 import { BookRatingService } from '../shared/book-rating.service';
+import { By } from '@angular/platform-browser';
 
 describe('BookComponent', () => {
   let component: BookComponent;
   let fixture: ComponentFixture<BookComponent>;
 
-  let rateUpHasBeenCalled;
   const ratingMock = {
-    rateUp: () => {
-      rateUpHasBeenCalled = true;
-    }
+    rateUp: () => { }
   };
 
   beforeEach(async(() => {
-    rateUpHasBeenCalled = false;
+
+    spyOn(ratingMock, 'rateUp'); // and.callThrough()
+
     TestBed.configureTestingModule({
       declarations: [ BookComponent ],
       providers: [
@@ -48,6 +48,18 @@ describe('BookComponent', () => {
 
   it('should forward the rateUp call to the book rating service', () => {
     component.rateUp();
-    expect(rateUpHasBeenCalled).toBe(true);
+    expect(ratingMock.rateUp).toHaveBeenCalled();
+    expect(ratingMock.rateUp).not.toHaveBeenCalledTimes(2); // nur aus Spaß! :-)
+  });
+
+  fit('should call the service when the button is clicked', () => {
+
+    const rateUpButton = fixture.debugElement
+      .query(By.css('[testRateUpButton]'))
+      .nativeElement as HTMLButtonElement;
+
+    rateUpButton.click();
+
+    expect(ratingMock.rateUp).toHaveBeenCalled();
   });
 });
