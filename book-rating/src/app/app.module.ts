@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BooksModule } from './books/books.module';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -13,7 +15,8 @@ import { BooksModule } from './books/books.module';
     // BrowserModule Nur im Haupt-Modul
     BrowserModule,
     AppRoutingModule,
-    BooksModule
+    BooksModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

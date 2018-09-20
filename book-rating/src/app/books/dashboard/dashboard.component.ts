@@ -6,11 +6,11 @@ import { BookStoreService } from '../shared/book-store.service';
   selector: 'br-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush // VORSICHT: funktioniert bei AJAX nicht mehr
+  // changeDetection: ChangeDetectionStrategy.OnPush // VORSICHT: funktioniert bei AJAX nicht mehr
 })
 export class DashboardComponent implements OnInit {
 
-  books: Book[];
+  books: Book[] = [];
 
   constructor(private bookStoreService: BookStoreService) { }
 
@@ -21,7 +21,9 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.books = this.bookStoreService.getAllHardcoded();
+    this.bookStoreService.getAll().subscribe((books) => {
+      this.books = books;
+    });
   }
 
   addBook(book: Book) {
