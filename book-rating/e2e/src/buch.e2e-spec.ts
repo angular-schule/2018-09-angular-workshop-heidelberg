@@ -1,6 +1,6 @@
 import { browser, element, by, $ } from 'protractor';
 
-fdescribe('angular buch', () => {
+describe('angular buch', () => {
 
   beforeAll(() => browser.waitForAngularEnabled(false));
 
