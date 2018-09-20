@@ -28,4 +28,14 @@ export class CreateBookComponent  {
     });
     this.bookForm.reset();
   }
+
+  isInvalid(name: string) {
+    const control = this.bookForm.get(name);
+    return control.invalid && control.dirty;
+  }
+
+  hasError(name: string, errorCode: string) {
+    const control = this.bookForm.get(name);
+    return control.hasError(errorCode) && control.dirty;
+  }
 }
