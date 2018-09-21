@@ -34,7 +34,9 @@ export class BookDetailsComponent implements OnInit {
         complete: () => console.log('Nr. 2 Complete! 😀')
       };
 
-      this.bookStore.getSingle(isbn).subscribe(observer);
+      const subscription = this.bookStore.getSingle(isbn).subscribe(observer);
+      // später: subscription.unsubscribe();
+      
 
      });
   }
