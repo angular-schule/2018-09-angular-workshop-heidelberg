@@ -12,7 +12,6 @@ export class BookDetailsComponent implements OnInit {
 
   book: Book;
 
-
   constructor(private route: ActivatedRoute,
     private bookStore: BookStoreService) { }
 
@@ -21,7 +20,6 @@ export class BookDetailsComponent implements OnInit {
 
       const isbn = paramMap.get('isbn');
       this.bookStore.getSingle(isbn).subscribe(book => this.book);
-
      });
   }
 
