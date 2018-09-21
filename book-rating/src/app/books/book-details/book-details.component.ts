@@ -12,18 +12,16 @@ import { map, filter, reduce, tap, mergeMap } from 'rxjs/operators';
 })
 export class BookDetailsComponent implements OnInit {
 
-  book: Book;
+  book$: Observable<Book>;
 
   constructor(private route: ActivatedRoute,
     private bookStore: BookStoreService) { }
 
   ngOnInit() {
 
-    this.route.paramMap.pipe(
+    this.book$ = this.route.paramMap.pipe(
       map(paramMap => paramMap.get('isbn')),
-      mergeMap(isbn => this.bookStore.getSingle(isbn)),
-      tap(x => console.log(x))
-    ).subscribe(book => this.book = book);
-
+      mergeMap(isbn => this.bookStore.getSingle(isbn))
+    );
   }
 }

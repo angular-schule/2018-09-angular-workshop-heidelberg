@@ -1,6 +1,10 @@
-<h1>
-  Book {{ book?.isbn }}
-</h1>
+<ng-container *ngIf="book$ | async as book">
 
-<br-book *ngIf="book" [book]="book"></br-book>
+  <h1>
+    Book {{ book.isbn }}
+  </h1>
+
+  <br-book [book]="book"></br-book>
+
+</ng-container>
 
