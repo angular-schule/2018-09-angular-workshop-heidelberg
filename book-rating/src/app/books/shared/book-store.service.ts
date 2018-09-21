@@ -17,4 +17,10 @@ export class BookStoreService {
       .pipe(retry(3));
 
   }
+
+  getSingle(isbn: string) {
+    return this.http
+      .get<Book>('https://api.angular.schule/book/' + isbn);
+
+  }
 }
