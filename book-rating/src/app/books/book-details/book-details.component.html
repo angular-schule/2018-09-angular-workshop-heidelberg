@@ -1,9 +1,6 @@
 <h1>
-  Book #{{ isbn }}
+  Book {{ book?.isbn }}
 </h1>
 
-<p>
-  book-details works!
-</p>
+<br-book *ngIf="book" [book]="book"></br-book>
 
-<a routerLink="/book/2">Go to Book 2</a><br>

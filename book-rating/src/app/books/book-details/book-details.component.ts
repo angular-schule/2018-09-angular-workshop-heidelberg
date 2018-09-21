@@ -19,8 +19,23 @@ export class BookDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(paramMap => {
 
       const isbn = paramMap.get('isbn');
-      this.bookStore.getSingle(isbn).subscribe(book => this.book);
+
+      // via callbacks
+      this.bookStore.getSingle(isbn).subscribe(
+        book => this.book = book,
+        error => console.error('Es gab nen Fehler', error),
+        () => console.log('Nr. 1 Complete! 😀')
+      );
+
+      // via observer
+      const observer = {
+        next: book => console.log('Hui ein Buch', book),
+        error: error => console.error('Es gab nen Fehler', error),
+        complete: () => console.log('Nr. 2 Complete! 😀')
+      };
+
+      this.bookStore.getSingle(isbn).subscribe(observer);
+
      });
   }
-
 }
