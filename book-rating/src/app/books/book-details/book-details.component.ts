@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookStoreService } from '../shared/book-store.service';
 import { Book } from '../shared/book';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'br-book-details',
@@ -34,9 +35,16 @@ export class BookDetailsComponent implements OnInit {
         complete: () => console.log('Nr. 2 Complete! 😀')
       };
 
-      const subscription = this.bookStore.getSingle(isbn).subscribe(observer);
-      // später: subscription.unsubscribe();
-      
+
+      const myObservable$ = new Observable(observer1 => {
+        observer1.next('A');
+
+        window.setTimeout(() => observer1.next('B'), 1000);
+        observer1.complete();
+      });
+
+      myObservable$.subscribe(observer);
+
 
      });
   }
