@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookStoreService } from '../shared/book-store.service';
 import { Book } from '../shared/book';
-import { Observable } from 'rxjs';
+import { Observable, of, from, timer } from 'rxjs';
+import { map, filter, reduce } from 'rxjs/operators';
 
 @Component({
   selector: 'br-book-details',
@@ -35,13 +36,13 @@ export class BookDetailsComponent implements OnInit {
         complete: () => console.log('Nr. 2 Complete! 😀')
       };
 
+      const myObservable$ = from([1, 2, 3, 4, 5]).
+        pipe(
+          filter(n => n % 2 === 0),
+          map(n => n + 10),
+          reduce((acc, item) => acc + item, 0)
+        );
 
-      const myObservable$ = new Observable(observer1 => {
-        observer1.next('A');
-
-        window.setTimeout(() => observer1.next('B'), 1000);
-        observer1.complete();
-      });
 
       myObservable$.subscribe(observer);
 
