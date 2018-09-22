@@ -16,24 +16,27 @@ const initialState = {
 export function booksReducer(state: BooksState = initialState, action: BooksActions): BooksState {
   switch (action.type) {
 
-    case BooksActionTypes.LoadBooks:
+    case BooksActionTypes.LoadBooks: {
       return {
         ...state,
         loading: true
       };
+    }
 
-    case BooksActionTypes.LoadBooksSuccess:
+    case BooksActionTypes.LoadBooksSuccess: {
       return {
         ...state,
         books: action.payload,
         loading: false
       };
+    }
 
-    case BooksActionTypes.LoadBooksFail:
+    case BooksActionTypes.LoadBooksFail: {
       return {
         ...state,
         loading: false
-    };
+      };
+    }
 
     default: { return state; }
   }
