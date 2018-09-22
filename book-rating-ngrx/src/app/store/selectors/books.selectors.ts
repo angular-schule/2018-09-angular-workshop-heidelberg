@@ -14,8 +14,16 @@ export const getBooksState = createFeatureSelector<BooksState>('books');
  * piece of state.
  */
 // TODO_7: selector for books.loading
+export const getBooksLoading = createSelector(
+  getBooksState,
+  state => state.loading
+);
 
 // TODO_8: selector for books.books
+export const getAllBooks = createSelector(
+  getBooksState,
+  state => state.books
+);
 
 
 

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BookStoreService } from '../shared/book-store.service';
 import { Book } from '../shared/book';
 import { Observable, of, from, timer } from 'rxjs';
-import { map, filter, reduce, tap, mergeMap } from 'rxjs/operators';
+import { map, filter, reduce, tap, mergeMap, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'br-book-details',
@@ -21,7 +21,7 @@ export class BookDetailsComponent implements OnInit {
 
     this.book$ = this.route.paramMap.pipe(
       map(paramMap => paramMap.get('isbn')),
-      mergeMap(isbn => this.bookStore.getSingle(isbn))
+      switchMap(isbn => this.bookStore.getSingle(isbn))
     );
   }
 }
