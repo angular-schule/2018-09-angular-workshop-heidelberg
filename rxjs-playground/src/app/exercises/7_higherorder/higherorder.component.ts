@@ -18,12 +18,14 @@ export class HigherorderComponent implements OnInit {
   constructor(private es: ExerciseService) { }
 
   ngOnInit() {
-    
-    /******************************/
-
 
     /******************************/
-    
+    this.result$ = this.source$.pipe(
+      switchMap(tier => this.es.echo(tier, 5))
+    );
+
+    /******************************/
+
     this.source$.subscribe(value => this.logStream$.next(`SOURCE: ${value}`));
     this.result$.subscribe(value => this.logStream$.next(`🚀 ${value}`));
   }

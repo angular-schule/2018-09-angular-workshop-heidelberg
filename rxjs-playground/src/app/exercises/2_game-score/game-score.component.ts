@@ -13,7 +13,7 @@ export class GameScoreComponent implements OnInit {
   finalScore: number;
 
   logStream$ = new Subject();
-  
+
   score$ = new Subject<number>();
 
   constructor() { }
@@ -21,9 +21,15 @@ export class GameScoreComponent implements OnInit {
   ngOnInit() {
 
     /******************************/
-    
-    
-    
+
+    this.score$.pipe(
+      scan((acc, item) => acc + item, 0)
+    ).subscribe(score => this.currentScore = score);
+
+    this.score$.pipe(
+      reduce((acc, item) => acc + item, 0)
+    ).subscribe(score => this.finalScore = score);
+
     /******************************/
 
     this.score$.subscribe(

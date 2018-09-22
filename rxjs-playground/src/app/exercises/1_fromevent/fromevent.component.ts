@@ -12,6 +12,12 @@ export class FromeventComponent implements OnInit {
   currentWidth: number = 0;
 
   ngOnInit() {
+
+    fromEvent(window, 'resize').pipe(
+      map((e: Event) => (e.currentTarget as Window).innerWidth),
+      startWith(window.innerWidth),
+      debounceTime(100)
+    ).subscribe(innerWidth => this.currentWidth = innerWidth);
   }
 
 }
