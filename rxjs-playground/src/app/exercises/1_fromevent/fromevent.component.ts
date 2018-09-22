@@ -9,7 +9,7 @@ import { map, startWith, debounceTime } from 'rxjs/operators';
 })
 export class FromeventComponent implements OnInit {
 
-  currentWidth: number = 0;
+  currentWidth = 0;
 
   ngOnInit() {
 

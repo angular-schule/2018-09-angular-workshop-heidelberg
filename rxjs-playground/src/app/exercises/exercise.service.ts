@@ -21,10 +21,10 @@ export class ExerciseService {
   randomError(): Observable<string> {
     const errMsg = 'Something bad happened...';
     const successMsg = 'Everything\'s fine';
-    
+
     return new Observable(observer => {
       if (Math.random() > 0.3) {
-        console.error(errMsg)
+        console.error(errMsg);
         observer.error(errMsg);
       } else {
         console.log(successMsg);

@@ -15,5 +15,6 @@ export const exercisesList: Exercises = [
     { name: 'Error handling', folder: '4_error-handling', component: ErrorHandlingComponent },
     { name: 'How to unsubscribe and avoid memory leaks', folder: '5_unsubscribe', component: UnsubscribeComponent },
     { name: 'Chat: Merging Observables', folder: '6_chat', component: ChatComponent },
-    { name: 'Higher Order Observables with concatMap, mergeMap, switchMap, exhaustMap', folder: '7_higherorder', component: HigherorderComponent },
+    { name: 'Higher Order Observables with concatMap, mergeMap, switchMap, exhaustMap',
+      folder: '7_higherorder', component: HigherorderComponent },
 ];

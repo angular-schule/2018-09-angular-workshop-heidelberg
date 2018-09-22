@@ -9,7 +9,7 @@ import { scan, reduce } from 'rxjs/operators';
 })
 export class GameScoreComponent implements OnInit {
 
-  currentScore: number = 0;
+  currentScore = 0;
   finalScore: number;
 
   logStream$ = new Subject();

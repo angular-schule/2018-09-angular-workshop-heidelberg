@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject, timer } from 'rxjs';
-import { ExerciseService } from '../exercise.service';
+import { takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'rxw-unsubscribe',
@@ -10,13 +10,15 @@ import { ExerciseService } from '../exercise.service';
 export class UnsubscribeComponent implements OnInit, OnDestroy {
 
   logStream$ = new Subject<string | number>();
-  constructor(private es: ExerciseService) {}
+  constructor() {}
+
+  destroyed = false;
 
   ngOnInit() {
     const interval$ = timer(0, 1000);
 
     interval$.pipe(
-      // ...
+      takeWhile(() => !this.destroyed)
     ).subscribe(
       msg => this.log(msg),
       err => this.log('ERROR: ' + err),
@@ -24,7 +26,9 @@ export class UnsubscribeComponent implements OnInit, OnDestroy {
     );
   }
 
-  destroy() {
+  ngOnDestroy() {
+    this.destroyed = true;
+
     this.logStream$.next('DESTROY');
   }
 
@@ -33,9 +37,4 @@ export class UnsubscribeComponent implements OnInit, OnDestroy {
     console.log(msg);
     this.logStream$.next(msg);
   }
-
-  ngOnDestroy() {
-    this.destroy();
-  }
-
 }

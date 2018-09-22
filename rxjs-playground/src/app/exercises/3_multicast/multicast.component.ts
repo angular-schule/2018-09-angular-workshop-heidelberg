@@ -12,7 +12,6 @@ export class MulticastComponent implements OnInit {
 
   measureValues$: Subject<number>;
 
-
   listeners = [];
   logStream$ = new Subject();
 
@@ -21,13 +20,18 @@ export class MulticastComponent implements OnInit {
   ngOnInit() {
     /*******************************/
 
-    // Subjects!
+    // 1. unchanged stream
+    // this.measureValues$ = this.mvs.getValues();
+
+    // 2. multicasts (shares) the original Observable, uses Subject() internally
     // this.measureValues$ = this.mvs.getValues().pipe(share());
 
-    // Subject, BehaviorSubject, ReplaySubject
+    // 3. please try out:
+    // - Subject
+    // - BehaviorSubject
+    // - ReplaySubject
     this.measureValues$ = new ReplaySubject<number>();
     this.mvs.getValues().subscribe(this.measureValues$);
-
 
     /*******************************/
   }
