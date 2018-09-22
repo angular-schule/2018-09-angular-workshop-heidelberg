@@ -52,7 +52,7 @@ describe('BookComponent', () => {
     expect(ratingMock.rateUp).not.toHaveBeenCalledTimes(2); // nur aus Spaß! :-)
   });
 
-  fit('should call the service when the button is clicked', () => {
+  it('should call the service when the button is clicked', () => {
 
     const rateUpButton = fixture.debugElement
       .query(By.css('[testRateUpButton]'))
